@@ -19,6 +19,6 @@ $asunto = 'Mensaje en porfolio';
 mail($para , $asunto, utf8_decode($mensaje), $header);
 
 //Redireccion al haber enviado el form
-header('index.html');
+header('https://gonzalogagliardi.github.io/porfolio/');
 
 ?>
