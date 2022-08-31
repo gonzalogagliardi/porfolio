@@ -1,5 +1,5 @@
 <?php
-
+/*
 $nombre = $_POST['nombre'];
 $email = $_POST['email'];
 $mensaje = $_POST['textarea'];
@@ -19,6 +19,35 @@ $asunto = 'Mensaje en porfolio';
 mail($para , $asunto, utf8_decode($mensaje), $header);
 
 //Redireccion al haber enviado el form
-header('https://gonzalogagliardi.github.io/porfolio/');
+header('Location:exito.html');
 
+*/
+
+
+
+
+
+// Declaración de variables del formulario
+$nombre = $_POST['nombre'];
+$email = $_POST['email'];
+
+$mensaje = $_POST['mensaje'];
+
+// Datos del email
+$para = 'gagliardigonzalo@gmail.com';
+$titulo = 'S&S Solicitud de presupuesto';
+$header = 'From: ' . $email;
+$msjCorreo = "Nombre: $nombre\nE-Mail: $email\n Mensaje:\n $mensaje";
+
+if ($_POST['submit']) {
+
+    if (mail($para, $titulo, $msjCorreo, $header)) {
+
+    echo "<script language='javascript'>
+    alert('Mensaje enviado, muchas gracias por contactar con nosotros.');
+    </script>";
+    } else {
+        echo 'Falló el envio';
+    }
+}
 ?>
